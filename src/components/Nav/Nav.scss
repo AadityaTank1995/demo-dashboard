@@ -1,0 +1,163 @@
+$primery: #01906D;
+$dark-background: #000;
+$dark-color: #eee;
+$dark-secondary: #222;
+$light-background: #fff;
+$light-color: #333;
+$light-secondary: #eee;
+
+.nav-header {
+  overflow: auto;
+  clear: both;
+}
+.main-logo {
+  vertical-align: middle;
+  width: 100px;
+}
+.mode-toggle {
+  vertical-align: middle;
+  border: none;
+  padding: 5px 20px;
+  border-radius: 5px;
+  float: right;
+  margin-left: 20px;
+}
+.button-light {
+  background: rgba(128, 128, 128, 0.2);
+  color: $light-color;
+}
+.button-dark {
+  background: rgba(128, 128, 128, 0.2);
+  color: $dark-color;
+}
+
+.main-nav-container {
+  display: inline-block;
+  width: 220px;
+  flex-shrink: 0;
+}
+.main-nav {
+  margin-top: 38px;
+  padding: 30px 0px;
+  display: inline-block;
+  background: $light-secondary;
+  border-radius: 10px;
+  width: 100%;
+}
+.main-nav.dark {
+  background: $dark-secondary;
+  color: $dark-color;
+  ul > li > a {
+    color: $dark-color;
+  }
+  input {
+    background: $dark-background;
+    color: $dark-color;
+  }
+}
+
+.main-nav ul {
+  margin: auto;
+  width: 120px;
+  list-style-type: none;
+}
+.main-nav > ul > li {
+  // display: inline-block;
+  clear: both;
+  padding: 20px 10px;
+  a {
+    text-decoration: none;
+    color: $light-color;
+    transition: all .1s ease;
+    &:hover{
+      color: $primery;
+    }
+  }
+  button {
+    background: none;
+    border: none;
+    font-size: inherit;
+    color: inherit;
+    &:hover{
+      color: $primery;
+    }
+  }
+}
+.main-nav > ul > li.nav-active-link {
+  a {
+    color: $primery;
+    border-bottom: 3px solid $primery;
+  }
+}
+.nav-search {
+  display: block;
+  margin: 10px auto;
+  padding: 5px 10px;
+  border: 0px;
+  border-radius: 50px;
+  width: 120px;
+  height: 20px;
+  &:focus {
+    outline: none;
+  }
+}
+.nav-toggle, .close-button {
+  display: none;
+}
+.collapse {
+  max-height: 0px;
+  overflow: hidden;
+  transition: all 1s ease;
+}
+.collapse.open {
+  max-height: 120px;
+  overflow: hidden;
+}
+.sub-nav {
+  li {
+    margin: 15px 0px 0px 10px;
+    &:hover {
+      transition: all .1s ease;
+      color: $primery;
+    }
+  }
+}
+.collapse-icon {
+  margin-left: 15px;
+  font-size: .75em;
+}
+@media only screen and (max-width: 1024px) {
+  .main-nav-container {
+    width: 100%;
+    z-index: 9999;
+  }
+  .main-nav {
+    position: fixed;
+    right: -220px;
+    top: -30px;
+    width: 220px;
+    transition: all .4s ease;
+  }
+  .main-nav.open {
+    right: 20px;
+  }
+  .close-button {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+  }
+  .nav-header {
+    position: fixed;
+    width: calc(100% - 40px);
+    background: $light-background;
+    padding: 10px 20px;
+    top: 0px;
+    left: 0px;
+  }
+  .app-dark .nav-header {
+    background: $dark-background;
+  }
+  .nav-toggle, .close-button {
+    display: block;
+  }
+}
